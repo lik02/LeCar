@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 public class ViewInfo {
-    static String customerFile = "cust.csv";
-    static String employeeFile = "employee.csv";
-    static String salesFile = "sales.csv";
-    static String vehicleFile = "vehicle-2.csv";
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
 
     private static void printHeader(String file) {
         try (BufferedReader Reader = new BufferedReader(new FileReader(file))) {

@@ -7,13 +7,12 @@ import java.time.format.DateTimeFormatter;
 
 // import static sales.InputCustomerData.saveCustomerToCSV;
 public class InputSalesData extends Company {
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
 
     public static void InputSalesData(String username) {
-        String customerFile = "cust.csv";
-        String employeeFile = "employee.csv";
-        String salesFile = "sales.csv";
-        String vehicleFile = "vehicle-2.csv";
-
         BufferedReader reader = null;
         String line = "";
         int linesRead = 0000;
@@ -65,7 +64,7 @@ public class InputSalesData extends Company {
         System.out.print("Enter Employee ID: "+username);
         System.out.println("");
         
-        saveSalesToCSV( salesFile,  salesId,  dateTime,  carPlate,  custId, employeeId);
+        saveSalesToCSV(salesFile,  salesId,  dateTime,  carPlate,  custId, employeeId);
 
         
     }

@@ -7,10 +7,11 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Company {
-    String customerFile = "cust.csv";
-    String employeeFile = "employee.csv";
-    String salesFile = "sales.csv";
-    String vehicleFile = "vehicle-2.csv";
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
+
     private String username;
     ProfitMargin profitMargin = new ProfitMargin();
     public static Customer [] c;
@@ -22,7 +23,7 @@ public class Company {
     }
     
     public boolean validateSecretKey(String enteredKey) {
-        String secretKey = "leeCars";
+        String secretKey = "leCars";
         return secretKey.equals(enteredKey);
     }
     
@@ -34,7 +35,7 @@ public class Company {
         int cnt = id.length - 1;
         
         try {
-            BufferedReader inputStream = new BufferedReader(new FileReader("employeeFile"));
+            BufferedReader inputStream = new BufferedReader(new FileReader(employeeFile));
             while ((line = inputStream.readLine()) != null){
                 i++;
             }
@@ -66,7 +67,7 @@ public class Company {
     
     public void registerEmployee(String name, String username, String password) {
         try {
-            PrintWriter outputStream = new PrintWriter(new FileOutputStream("employeeFile", true));
+            PrintWriter outputStream = new PrintWriter(new FileOutputStream(employeeFile, true));
             outputStream.printf("%s,%s,%s,%s\n", username, name, "0", password);
             outputStream.close();
         }catch (IOException ioe) {
@@ -80,7 +81,7 @@ public class Company {
         String line = "";
         String[] row = null;
         try {
-            BufferedReader inputStream = new BufferedReader(new FileReader("employeeFile"));
+            BufferedReader inputStream = new BufferedReader(new FileReader(employeeFile));
             while ((line = inputStream.readLine()) != null){
                 row = line.split(",");
                 if (row[0].equals(username) && row[3].equals(password)) {

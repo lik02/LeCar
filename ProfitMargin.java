@@ -15,10 +15,10 @@ import java.util.ArrayList;
  * @author User
  */
 public class ProfitMargin {
-    String customerFile = "cust.csv";
-    String employeeFile = "employee.csv";
-    String salesFile = "sales.csv";
-    String vehicleFile = "vehicle-2.csv";
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
     
     public static ArrayList carSold(String year){
         String line;
@@ -26,7 +26,7 @@ public class ProfitMargin {
         ArrayList<String> carPlate = new ArrayList<>();
         
         try {
-        BufferedReader inputStream = new BufferedReader(new FileReader("salesFile"));
+        BufferedReader inputStream = new BufferedReader(new FileReader(salesFile));
             while((line = inputStream.readLine()) != null) {
                 row = line.split(",");
                 date = row[1].split("-");
@@ -49,7 +49,7 @@ public class ProfitMargin {
         String[] row = null;
         ArrayList<String> carPlate = carSold(year);
         try {
-            BufferedReader inputStream = new BufferedReader(new FileReader("vehicleFile"));
+            BufferedReader inputStream = new BufferedReader(new FileReader(vehicleFile));
             while ((line = inputStream.readLine()) != null) {
                 row = line.split(",");
                 if (carPlate.contains(row[0])) {
@@ -71,7 +71,7 @@ public class ProfitMargin {
         ArrayList<String> carPlate = carSold(year);
         
         try {
-            BufferedReader inputStream = new BufferedReader(new FileReader("vehicleFile"));
+            BufferedReader inputStream = new BufferedReader(new FileReader(vehicleFile));
             while ((line = inputStream.readLine()) != null) {
                 row = line.split(",");
                 if (carPlate.contains(row[0])) {

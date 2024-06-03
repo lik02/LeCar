@@ -7,16 +7,16 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ImportData{
-    String customerFile = "cust.csv";
-    String employeeFile = "employee.csv";
-    String salesFile = "sales.csv";
-    String vehicleFile = "vehicle-2.csv";
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
 
     public static Customer []importCustomer(String selc){
             Customer []c=new Customer[10000];
             if(selc.equals("1")){
             try{
-            Scanner sc=new Scanner(new FileInputStream("customerFile"));
+            Scanner sc=new Scanner(new FileInputStream(customerFile));
             int i=0;
             while(sc.hasNextLine()){
                 String [] cust=sc.nextLine().split(",");
@@ -36,7 +36,7 @@ public class ImportData{
         Employee [] e=new Employee[10000];
         if(selc.equals("1")){
         try{
-            Scanner sc=new Scanner(new FileInputStream("employeeFile"));
+            Scanner sc=new Scanner(new FileInputStream(employeeFile));
             int i=0;
             while(sc.hasNextLine()){
                 String [] emp=sc.nextLine().split(",");
@@ -57,7 +57,7 @@ public class ImportData{
         Sales [] s=new Sales[10000];
         if(selc.equals("1")){
         try{
-            Scanner sc=new Scanner(new FileInputStream("salesFile"));
+            Scanner sc=new Scanner(new FileInputStream(salesFile));
             int i=0;
             while(sc.hasNextLine()){
                 String [] sale=sc.nextLine().split(",");
@@ -77,7 +77,7 @@ public class ImportData{
         Vehicle [] v=new Vehicle[10000];
         if(selc.equals("1")){
         try{
-            Scanner sc=new Scanner(new FileInputStream("vehicleFile"));
+            Scanner sc=new Scanner(new FileInputStream(vehicleFile));
             int i=0;
             while(sc.hasNextLine()){
                 String [] vech=sc.nextLine().split(",");
@@ -121,7 +121,7 @@ public class ImportData{
         String pass =passwordGenerator();
         sb.append(","+name+","+status+","+pass);
             try{
-                PrintWriter pw=new PrintWriter(new FileOutputStream("employeeFile",true));
+                PrintWriter pw=new PrintWriter(new FileOutputStream(employeeFile,true));
                 pw.println(sb.toString());
                 pw.close();
                 System.out.println("Employee added.\n");

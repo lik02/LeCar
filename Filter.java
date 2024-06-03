@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 
 public class Filter {
-    String customerFile = "cust.csv";
-    String employeeFile = "employee.csv";
-    String salesFile = "sales.csv";
-    String vehicleFile = "vehicle-2.csv";
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
 
     public void filterEmployee(String search){
         try{
-            Scanner sc=new Scanner(new FileInputStream("employeeFile"));
+            Scanner sc=new Scanner(new FileInputStream(employeeFile));
             while(sc.hasNextLine()){
                 String [] emp=sc.nextLine().split(",");
                 if(emp[0].equals(search)||emp[1].equals(search)||emp[2].equals(search)||emp[3].equals(search))
@@ -26,7 +26,7 @@ public class Filter {
     }
     public void filterSales(String search){
         try{
-            Scanner sc=new Scanner(new FileInputStream("salesFile"));
+            Scanner sc=new Scanner(new FileInputStream(salesFile));
             while(sc.hasNextLine()){
                 String [] sales=sc.nextLine().split(",");
                 if(sales[0].equals(search)||sales[1].equals(search)||sales[2].equals(search)||sales[3].equals(search)||sales[4].equals(search))
@@ -40,7 +40,7 @@ public class Filter {
     }
     public void filterSalesWithEId(String eid,String search){
         try{
-            Scanner sc=new Scanner(new FileInputStream("salesFile"));
+            Scanner sc=new Scanner(new FileInputStream(salesFile));
             while(sc.hasNextLine()){
                 String [] sales=sc.nextLine().split(",");
                 if(sales[4].equals(eid)&&(sales[0].equals(search)||sales[1].equals(search)||sales[2].equals(search)||sales[3].equals(search)||sales[4].equals(search)))
@@ -54,7 +54,7 @@ public class Filter {
     }
     public void filterSalesForDateTime(String search,String search2){
         try{
-            Scanner sc=new Scanner(new FileInputStream("salesFile"));
+            Scanner sc=new Scanner(new FileInputStream(salesFile));
             while(sc.hasNextLine()){
                 String [] sales=sc.nextLine().split(",");
                 if((sales[1].compareTo(search)>=0&&sales[1].compareTo(search2)<=0))
@@ -68,7 +68,7 @@ public class Filter {
     }
     public void filterSalesForDateTimeWithEId(String eid,String search,String search2){
         try{
-            Scanner sc=new Scanner(new FileInputStream("salesFile"));
+            Scanner sc=new Scanner(new FileInputStream(salesFile));
             while(sc.hasNextLine()){
                 String [] sales=sc.nextLine().split(",");
                 if(sales[4].equals(eid)&&(sales[1].compareTo(search)>=0&&sales[1].compareTo(search2)<=0))
@@ -82,7 +82,7 @@ public class Filter {
     }
     public void filterVehicle(String search){
         try{
-            Scanner sc=new Scanner(new FileInputStream("vehicleFile"));
+            Scanner sc=new Scanner(new FileInputStream(vehicleFile));
             while(sc.hasNextLine()){
                 String [] vechi=sc.nextLine().split(",");
                 String []vech=new String[5];
@@ -111,7 +111,7 @@ public class Filter {
     }
     public void filterVehicleForLarger(String search,String search2){
         try{
-            Scanner sc=new Scanner(new FileInputStream("vehicleFile"));
+            Scanner sc=new Scanner(new FileInputStream(vehicleFile));
             String [] vechi=sc.nextLine().split(",");
             while(sc.hasNextLine()){
                 vechi=sc.nextLine().split(",");
@@ -142,7 +142,7 @@ public class Filter {
     }
     public void filterVehicleForLess(String search,String search2){
         try{
-            Scanner sc=new Scanner(new FileInputStream("vehicleFile"));
+            Scanner sc=new Scanner(new FileInputStream(vehicleFile));
             String [] vechi=sc.nextLine().split(",");
             while(sc.hasNextLine()){
                 vechi=sc.nextLine().split(",");
@@ -173,7 +173,7 @@ public class Filter {
     }
     public void filterCustomer(String search){
         try{
-            Scanner sc=new Scanner(new FileInputStream("customerFile"));
+            Scanner sc=new Scanner(new FileInputStream(customerFile));
             while(sc.hasNextLine()){
                 String [] cust=sc.nextLine().split(",");
                 if(cust[0].equals(search)||cust[1].equals(search)||cust[2].equals(search)||cust[3].equals(search))
@@ -187,11 +187,11 @@ public class Filter {
     }
     public void filterCustomerWithEId(String eid,String search){
        try{
-            Scanner sc=new Scanner(new FileInputStream("salesFile"));
+            Scanner sc=new Scanner(new FileInputStream(salesFile));
             while(sc.hasNextLine()){
                 String [] sales=sc.nextLine().split(",");
                 if(sales[4].equals(eid)){
-                    Scanner sc2=new Scanner(new FileInputStream("custFile"));
+                    Scanner sc2=new Scanner(new FileInputStream(customerFile));
                     while(sc2.hasNextLine()){
                         String cust[]=sc2.nextLine().split(",");
                         if((sales[3].equals(cust[0]))&&(cust[0].equals(search)||cust[1].equals(search)||cust[2].equals(search)||cust[3].equals(search))){

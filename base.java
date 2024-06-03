@@ -6,10 +6,11 @@ import java.util.Scanner;
 
 
 public class base{
-    String customerFile = "cust.csv";
-    String employeeFile = "employee.csv";
-    String salesFile = "sales.csv";
-    String vehicleFile = "vehicle-2.csv";
+    static final String customerFile = "cust.csv";
+    static final String employeeFile = "employee.csv";
+    static final String salesFile = "sales.csv";
+    static final String vehicleFile = "vehicle-2.csv";
+    
     ArrayList<String> sellerSaleId = new ArrayList<String>();
     ArrayList<String> managerSaleId = new ArrayList<String>();
 
@@ -29,7 +30,7 @@ public class base{
     private void getID(){
         String line = "";
         try {
-            Scanner in = new Scanner(new FileInputStream("employeeFile"));
+            Scanner in = new Scanner(new FileInputStream(employeeFile));
             while(in.hasNextLine()){
                 line = in.nextLine();
                 String[] arr = line.split(",");
@@ -50,7 +51,7 @@ public class base{
 
         String line = "";
         try {
-            Scanner in = new Scanner(new FileInputStream("salesFile"));
+            Scanner in = new Scanner(new FileInputStream(salesFile));
             while(in.hasNextLine()){
                 line = in.nextLine();
                 String[] arr = line.split(",");
@@ -73,7 +74,7 @@ public class base{
         for(int i=0; i<hold.size(); i++){
             String line = "";
             try {
-                Scanner in = new Scanner(new FileInputStream("vehicleFile"));
+                Scanner in = new Scanner(new FileInputStream(vehicleFile));
                 while(in.hasNextLine()){
                     line = in.nextLine();
                     String[] arr = line.split(",");
